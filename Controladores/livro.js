@@ -10,6 +10,8 @@ const { get } = require("http")
         // aqui é onde a função getTodosLivros é chamada, ela lê o arquivo livros.json e retorna os dados para a rota do livro.js
         const livros = getTodosLivros()
         res.send(livros)
+
+    //tratamento de erro
     } catch (error) {
         res.status(500)
         res.send(error.message)
