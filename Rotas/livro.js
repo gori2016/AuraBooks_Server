@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const {getLivros} = require("../Controladores/livro")
+const {getLivros, getLivro} = require("../Controladores/livro")
 const router = Router()
 
 
@@ -8,6 +8,10 @@ const router = Router()
 
 // router.get é o metodo HTTP, o '/' é a rota e o res.send é a função que executa algo
 router.get('/', getLivros)
+
+
+router.get('/:id', getLivro)
+
 //exemplo de uma requisição POST simples
 router.post('/', (req, res) => {
     res.send("Você fez uma requisição do tipo POST")
