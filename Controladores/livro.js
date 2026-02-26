@@ -1,7 +1,4 @@
- 
- //modulo fs é responsável por ler, criar, atualizar, deletar e escrever arquivos, ele é nativo do node, ou seja, não precisa ser instalado
- const fs = require("fs")
-const { get } = require("http")
+const {getTodosLivros} = require("../Servicos/livro")
 
 
  // essa parte do código faz parte do controlador do livro é aqui que estão as funções que vão ser executadas quando as rotas forem acessadas no app.js
@@ -11,7 +8,7 @@ const { get } = require("http")
         const livros = getTodosLivros()
         res.send(livros)
 
-    //tratamento de erro
+    //tratamento de erros
     } catch (error) {
         res.status(500)
         res.send(error.message)

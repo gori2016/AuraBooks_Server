@@ -1,7 +1,7 @@
 const fs = require("fs")
-
-function getTodosLivros(req,res){
-    JSON.parse(fs.readFileSync('livros.json'))
+function getTodosLivros(){
+    const livros = JSON.parse(fs.readFileSync('livros.json'))
+    return livros
 }
 
 module.exports = {

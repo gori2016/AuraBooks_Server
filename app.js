@@ -2,7 +2,7 @@
 const express = require("express")
 
 //Importa o arquivo aonde foi criado as rotas do livro. aqui está sendo exportado o router 
-const rotaLivro = require("./Rotas/livro")
+const rotaLivro = require("./Rotas/livro.js")
 
 //cria a aplicação
 const app = express()
