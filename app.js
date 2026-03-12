@@ -10,6 +10,7 @@ const app = express()
 const port = 8000
 
 //isso significa sempre que alguém acessar algo que comece com /livros, use as rotas do arquivo livro.js
+app.use(express.json()) // isso é necessário para que o express consiga ler o corpo da requisição, sem isso o req.body vai ser undefined
 app.use('/livros', rotaLivro)
 
 app.listen(port,() =>{

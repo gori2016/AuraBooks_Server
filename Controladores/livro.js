@@ -1,4 +1,4 @@
-const {getTodosLivros, getLivroPorId} = require("../Servicos/livro")
+const {getTodosLivros, getLivroPorId, insereLivro} = require("../Servicos/livro")
 
 
  // essa parte do código faz parte do controlador do livro é aqui que estão as funções que vão ser executadas quando as rotas forem acessadas no app.js
@@ -18,7 +18,7 @@ const {getTodosLivros, getLivroPorId} = require("../Servicos/livro")
 
  function getLivro(req, res){
     try {
-        const id = req.params.id
+        const id = Number(req.params.id)
         const livro = getLivroPorId(id)
         res.send(livro)
 
@@ -29,10 +29,20 @@ const {getTodosLivros, getLivroPorId} = require("../Servicos/livro")
     }
  }
 
-
+function postLivro(req,res){
+    try {
+        const livroNovo = req.body
+        insereLivro(livroNovo)
+        res.status(201)
+        res.send("Livro Inserido com Sucesso")
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    }
+}
 
 
  module.exports = {
-    getLivros,  getLivro
+    getLivros,  getLivro, postLivro
  }
     
