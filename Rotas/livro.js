@@ -16,7 +16,6 @@ router.get('/:id', getLivro)
 router.post('/', postLivro)
 //exemplo de uma requisição Patch simples
 router.patch('/:id', patchLivro)
-
 //exemplo de uma requisição Delete simples
 router.delete('/:id', apagarLivro)
 

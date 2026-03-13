@@ -30,13 +30,14 @@ function modificaLivro(modificacoes, id){
 }
 
 
-//função delete para deletar um livro por id
+//função delete para deletar um livro por id Você não consegue deletar porque sua função deleteLivro não remove o livro do array nem salva novamente no arquivo. Ela só
 
 function deleteLivro(id){
     const livros = JSON.parse(fs.readFileSync("livros.json"))
 
-    let deletado = livros.filter(livro => livro.id ===id)[0]
-    return deletado
+    let deletado = livros.filter(livro => livro.id !==id)
+    fs.writeFileSync("livros.json", JSON.stringify(deletado))
+    
 }
 
 
