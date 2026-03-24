@@ -1,3 +1,5 @@
+const fs = require("fs")
+
 function getTodosFavoritos() {
     const livros = JSON.parse(fs.readFileSync('favoritos.json'))
     return livros
@@ -15,6 +17,10 @@ function inserirLivroFavorito(id){
     const favoritos = JSON.parse(fs.readFileSync('favoritos.json'))
 
     const livroInserido = livros.find(livro => livro.id === id)
+        if (!livroInserido) { // 👈 proteção
+        throw new Error(`Livro com id ${id} não encontrado`)
+    }
+
     const novaListadeLivrosFavoritos = [...favoritos, livroInserido]
     fs.writeFileSync("favoritos.json", JSON.stringify(novaListadeLivrosFavoritos))
     
